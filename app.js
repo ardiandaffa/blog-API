@@ -86,8 +86,6 @@ passport.use(new LocalStrategy(
 
 
 
-
-
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -105,7 +103,7 @@ opts.jwtFromRequest = ExtractJWT.fromAuthHeaderWithScheme('Bearer');
 opts.secretOrKey = 'authkey';
 
 passport.use(new JWTStrategy(opts, function(jwt_payload, done) {
-  User.findOne({username: jwt_payload.username}, function(err, user) {
+  User.findOne({_id: jwt_payload.userID}, function(err, user) {
       if (err) {
           return done(err, false);
       }
@@ -124,9 +122,9 @@ app.use('/API',passport.authenticate('jwt', {session: false}), routerAPI);
 
 app.post('/login', passport.authenticate(`local`),
   async (req,res) => {
-    const userObject = req.body;
-    userObject.password = await bcrypt.hash(userObject.password, 10);
-    const token = jwt.sign(userObject, 'authkey');
+    const userObject = await User.findOne({username: req.body.username});
+    const userID = userObject._id
+    const token = jwt.sign({userID}, 'authkey');
     res.status(200).json(token)
   }
 )
