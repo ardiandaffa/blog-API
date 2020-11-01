@@ -8,6 +8,7 @@
     <div class="flex-container"></div>
     <h1><%= address %></h1>
     <p>BLOG API: </p>
+    <p>THE API PROTECTED USING TOKEN, GENERATE TOKEN AND SET HEADER {Authorization: Bearer YOUR_TOKEN_HERE for authorization</Token>`</p>
     <br>
     <a>GET <%= address %>/API/ - GET ALL BLOG POSTS</a>
     <br>
@@ -33,6 +34,12 @@
     <a>GET <%= address %>/API/:ID/comments/:ID - GET INDIVIDUAL COMMENT DETAIL</a>
     <br>
     <a>PATCH <%= address %>/API/:ID/comments/:ID - UPDATE COMMENT</a>
+
+    <p>COMMENTS API: </p>
+    <br>
+    <a>POST <%= address %>/users/ - to create user </a>
+    <br>
+    <a>POST <%= address %>/login/ - to generate JsonWebToken </a>
   </div>
   </body>
 </html>
