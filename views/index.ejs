@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="flex-container"></div>
+    <h1><%= address %></h1>
+    <p>BLOG API: </p>
+    <br>
+    <a>GET <%= address %>/API/ - GET ALL BLOG POSTS</a>
+    <br>
+    <a>POST <%= address %>/API/ - CREATE BLOG POST</a>
+    <br>
+    <a>GET <%= address %>/API/:ID- GET BLOG POST DETAIL</a>
+    <br>
+    <a>GET <%= address %>/API/:ID/edit - GET EDIT BLOG POST FORM</a>
+    <br>
+    <a>PATCH <%= address %>/API/:ID/- EDIT INDIVIDUAL BLOG POST</a>
+    <br>
+    <a>DELETE <%= address %>/API/:ID - DELETE BLOG POST</a>
+    <br>
+    <br>
+    <p>COMMENTS API: </p>
+    <br>
+    <a>GET <%= address %>/API/:ID/comments - GET ALL COMMENTS OF A BLOG POST</a>
+    <br>
+    <a>POST <%= address %>/API/:ID/comments - CREATE NEW COMMENT</a>
+    <br>
+    <a>DELETE <%= address %>/API/:ID/comments/:ID - DELETE INDIVIDUAL COMMENT</a>
+    <br>
+    <a>GET <%= address %>/API/:ID/comments/:ID - GET INDIVIDUAL COMMENT DETAIL</a>
+    <br>
+    <a>PATCH <%= address %>/API/:ID/comments/:ID - UPDATE COMMENT</a>
+  </div>
+  </body>
+</html>
