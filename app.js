@@ -59,7 +59,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users',passport.authenticate('jwt', {session: false}), usersRouter);
 
 app.use(passport.initialize());
 
@@ -119,7 +119,7 @@ passport.use(new JWTStrategy(opts, function(jwt_payload, done) {
 
 
 //API ROUTER
-app.use('/API',passport.authenticate('jwt', {session: false}), routerAPI);
+app.use('/API', routerAPI);
 
 
 app.post('/login', passport.authenticate(`local`),
