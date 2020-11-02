@@ -1,7 +1,7 @@
 const Comment = require('../models/Comment.js');
 
 module.exports.find_all_comments = (req,res) => {
-    Comment.find({}).then(comments => {
+    Comment.find({_postID : req.params.id}).then(comments => {
         res.status(200).json(comments)
     })
 };
