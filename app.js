@@ -36,6 +36,12 @@ const DB_URL = process.env.DB_URL
 //REQUIRE USERMODEL
 const User = require('./models/User');
 const router = require('./routes/API');
+
+
+var app = express();
+app.use(cors());
+
+
 //INIT MONGOOSE CONNECTION
 try {
   mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -45,8 +51,6 @@ try {
 };
 
 
-var app = express();
-app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
