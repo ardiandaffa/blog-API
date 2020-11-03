@@ -16,7 +16,7 @@ module.exports.create_comment = async (req,res) => {
     })
 
     await newComment.save();
-    res.status(201);
+    res.sendStatus(201);
 };
 
 module.exports.get_comment_detail = (req,res) => {
