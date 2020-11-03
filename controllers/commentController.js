@@ -16,7 +16,7 @@ module.exports.create_comment = async (req,res) => {
     })
 
     await newComment.save();
-    res.sendStatus(201)
+    res.status(201).setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 };
 
 module.exports.get_comment_detail = (req,res) => {
